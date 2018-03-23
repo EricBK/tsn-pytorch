@@ -52,7 +52,7 @@ class TSNDataSet_frame(object):
                 return [Image.open(img_path).convert('RGB')]
             except:
                 print("Couldn't load image:{}".format(img_path))
-                return None
+                return [None]
         elif self.modality == 'Flow':
             x_img = Image.open(img_path).convert('L')
             y_img = Image.open(img_path).convert('L')
