@@ -19,6 +19,7 @@ num_length = args.new_length
 num_epoch = args.epochs
 
 data_dir = "../tsn_pytorch_data"
+if not os.path.exists(data_dir): os.makedirs(data_dir)
 def get_label_info(dataset=""):
     label_info = {}
     for child_dir in os.listdir(data_dir):
