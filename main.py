@@ -77,7 +77,7 @@ def main():
                 ToTorchFormatTensor(div=args.arch != 'BNInception'),
                 normalize,
             ])),
-        batch_size=args.batch_size, shuffle=True,
+        batch_size=args.batch_size, shuffle=False,
         num_workers=args.workers, pin_memory=True)
 
     val_loader = torch.utils.data.DataLoader(
