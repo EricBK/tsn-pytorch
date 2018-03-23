@@ -18,7 +18,7 @@ num_segment = args.num_segments
 num_length = args.new_length
 num_epoch = args.epochs
 
-data_dir = "data"
+data_dir = "../data"
 def get_label_info(dataset=""):
     label_info = {}
     for child_dir in os.listdir(data_dir):
@@ -34,10 +34,10 @@ def get_label_info(dataset=""):
                     video_id = line[0].split("/")[1][:-4]
                     label = line[1]
                     if video_id not in label_info:
-                        label_info[video_id] = int(label)
+                        label_info[video_id] = int(label) - 1
     return label_info
 
-def get_video_frames_from_bucket(bucket="video-data", prefix="UCF-frames/", des_file="frames_per_video.txt"):
+def get_video_frames_from_bucket(bucket="video-data", prefix="UCF-frames/"):
     """
     :param bucked: bucket name
     :param prefix:
@@ -109,7 +109,7 @@ def generate_frame_info(video_info, shuffle=True):
 
 
 def main():
-    get_video_frames_from_bucket(bucket="video-data",prefix="UCF-frames/",des_file="frames_per_video.txt")
+    get_video_frames_from_bucket(bucket="video-data",prefix="UCF-frames/")
     v_listfile = os.path.join(data_dir,video_level_list_file)
     video_info_train,video_info_val = parse_video_level_list(v_listfile,part=[0.7,0.3])
 

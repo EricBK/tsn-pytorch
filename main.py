@@ -69,8 +69,6 @@ def main():
     elif args.modality in ['Flow', 'RGBDiff']:
         data_length = 5
 
-    """test code"""
-
     train_loader = torch.utils.data.DataLoader(
         TSNDataSet_frame(root_path=args.root_path, list_file=args.train_list, num_segments=3,
                          new_length=1, modality="RGB", transform=torchvision.transforms.Compose([
