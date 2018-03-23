@@ -18,7 +18,7 @@ num_segment = args.num_segments
 num_length = args.new_length
 num_epoch = args.epochs
 
-data_dir = "../data"
+data_dir = "../tsn_pytorch_data"
 def get_label_info(dataset=""):
     label_info = {}
     for child_dir in os.listdir(data_dir):
